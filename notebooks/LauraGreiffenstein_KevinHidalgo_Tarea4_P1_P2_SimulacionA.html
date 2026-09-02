@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LauraGreiffenstein_KevinHidalgo_Tarea4_P1_P2_SimulacionA.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<hr style="border:2px solid #CC00FF"> </hr>
+<a><img src="https://www.vhv.rs/dpng/d/313-3134285_logo-de-la-universidad-nacional-de-colombia-png.png" width="100" align="center"></a>
+<a><img src="https://minaslap.net/pluginfile.php/1/core_admin/logo/0x200/1770226238/Logo%20MinasLAP-3%20%281%29.png" width="100" align="center"></a>
+<h1><center>Simulación Avanzada</center></h1>
+<h2><center>Tarea 4</center></h2>
+<h3><center>Implementación de juegos de azar (parte 1 y 2)</center></h3>
+<p><a name="conte"></a></p>
+<hr style="border:2px solid #CC00FF"> </hr>
+<p><strong>Elaborado por:</strong> <em>Laura Isabel Greiffenstein Moreno</em> &amp; <em>Kevin Ferney Hidalgo Higuita</em></p>
+<p><strong>Correos:</strong> <em>lgreiffenstein@unal.edu.co</em> &amp; <em>kfhidalgoh@unal.edu.co</em></p>
+<p><strong>Fecha de elaboración:</strong> <em>2026 Marzo 28</em></p>
+<p><strong>Fecha última modificación:</strong> <em>2026 Marzo 28</em></p>
+<hr>
+<h2><center>Tabla de contenido</center></h2>
+<ul>
+<li><a href="#objetivo">Objetivo</a></li>
+<li><a href="#parte-1">Parte 1</a></li>
+<li><a href="#parte-2">Parte 2</a></li>
+<li><a href="#parte-3">Parte 3</a></li>
+<li><a href="#desarrollo">Desarrollo</a>
+<ul>
+<li><a href="#excavaci%C3%B3n-en-el-valle-de-los-reyes">Excavación en el Valle de los Reyes</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="objetivo">Objetivo</h2>
+<p>En esta tarea, los estudiantes tendrán la oportunidad de integrar de manera práctica los conceptos
+fundamentales de probabilidad, variables aleatorias y simulación, mediante el diseño, análisis e
+implementación de un juego de azar.
+La actividad está pensada como un ejercicio técnico, y como una experiencia creativa aplicada, donde
+cada estudiante (o grupo máximo de dos estudiantes) construirá un sistema aleatorio desde cero,
+definiendo sus reglas, su lógica de funcionamiento y las variables de interés que permitirán
+analizar su comportamiento.
+A lo largo del desarrollo del taller, se espera que comprendan que detrás de cualquier juego de azar
+existe una estructura probabilística que puede ser modelada, simulada y estudiada rigurosamente. En
+este sentido, el objetivo no es únicamente “jugar” sino, además, entender, modelar y explicar el
+fenómeno aleatorio que subyace en el sistema diseñado.
+Adicionalmente, el uso de herramientas computacionales permitirá observar cómo, a través de la
+simulación, es posible aproximar distribuciones de probabilidad, estimar medidas estadísticas y
+analizar estrategias o comportamientos del juego bajo diferentes escenarios.
+Este ejercicio busca fortalecer cuatro competencias: (i) el pensamiento probabilístico, (ii) la
+modelación de sistemas aleatorios, (iii) la interpretación de resultados simulados, (iv) y la
+capacidad de comunicar ideas de forma clara y estructurada.
+Finalmente, se invita a los estudiantes a asumir este reto con creatividad, rigor y criterio
+analítico, entendiendo que la simulación no solo es una herramienta académica, sino un instrumento
+poderoso para la toma de decisiones en contextos reales.</p>
+<h2 id="parte-1">Parte 1</h2>
+<p>Diseñar un juego de azar que permita simular sus posibles resultados. Deberá dejar en claro el juego
+con sus reglas y supuestos para que sea entendible para cualquier jugador. Las reglas del juego las
+deberá acompañar de un ejercicio que le permita simular los resultados en algún paquete de software.
+Utilice también un diagrama de flujo y opcional un pseudo-código para que pueda elaborar su algoritmo
+y apoyar la sustentación de este en clase (revise una presentación sobre notas de elaboración de un
+diagrama de flujo y pseudocódigo que habíamos cargado previamente en MinasLap).</p>
+<h2 id="parte-2">Parte 2</h2>
+<p>Defina por lo menos una variable aleatoria de interés (pueden ser dos o más) que pueda ser estudiada
+en el juego, con sus probabilidades, distribución de probabilidad, esperanza, varianza y desviación
+estándar, y otras medidas de tendencia central y variabilidad que considere pertinente.</p>
+<h2 id="parte-3">Parte 3</h2>
+<p>Implementar el desarrollo de juego en algún paquete de software acompañado de su diagrama de flujo o
+pseudocódigo y el proceso simulado en el software, que sea funcional para cuando lo esté presentando.</p>
+<h2 id="desarrollo">Desarrollo</h2>
+<h3 id="excavaci%C3%B3n-en-el-valle-de-los-reyes">Excavación en el Valle de los Reyes</h3>
+<p><strong>Objetivo del juego</strong>
+El jugador asume el papel de un arqueólogo financiando una expedición. El objetivo es encontrar
+reliquias, pesarlas y venderlas al museo para recuperar el costo de la expedición y obtener la mayor
+ganancia posible.</p>
+<p><strong>Mecánica y Reglas Explícitas</strong></p>
+<ol>
+<li>Costo de Expedición: El jugador paga una tarifa fija de 35 monedas para iniciar la ronda.</li>
+<li>Fase de Búsqueda: El jugador excava y encuentra un número aleatorio de reliquias. Es posible no
+encontrar ninguna (0 reliquias).</li>
+<li>Fase de Pesaje: Cada reliquia encontrada tiene un peso aleatorio en kilogramos (kg).</li>
+<li>Fase de Tasación: El museo compra las reliquias a un precio fijo de 5 monedas por kg. El valor
+base del premio es la suma del peso de todas las reliquias multiplicado por 5.</li>
+<li>Bono del &quot;Ídolo de Oro&quot;: Al final de la tasación, el jugador lanza un dado de 20 caras. Si saca
+un 20 exacto, descubre el Ídolo de Oro y el museo duplica el valor total de su recompensa.
+Cualquier otro resultado mantiene la recompensa base.</li>
+</ol>
+<p><strong>Diagrama de flujo</strong></p>
+<p><img src="digramaFlujoExcavacionValleReyes.png" alt="DigramaFlujoExcavacionValleReyes" title="DiagramaFlujoExcavacionValleReyes"></p>
+<p><strong>Variables de interés y supuestos estadísticos</strong></p>
+<p>Para modelar este sistema de forma rigurosa, definimos tres variables aleatorias principales que controlan la incertidumbre del juego.</p>
+<ul>
+<li>
+<p>Número de reliquias encontradas ($X$):</p>
+<ul>
+<li>Tipo: Discreta.</li>
+<li>Distribución: Poisson.</li>
+<li>Parámetro: $\lambda = 3$ (esperanza de 3 reliquias por expedición).</li>
+</ul>
+<!-- - Justificación: La distribución de Poisson es ideal para modelar el conteo de eventos independientes que ocurren en un intervalo de tiempo o espacio fijo (una expedición). -->
+<p>Modela el número de hallazgos por expedición. Se utiliza distribución Poisson por tratarse de un
+conteo de eventos aleatorios en un intervalo fijo. El valor $\lambda = 3$ representa el promedio
+esperado de reliquias y es definido por el diseñador del juego.</p>
+</li>
+<li>
+<p>Peso de cada reliquia ($W_i$):</p>
+<ul>
+<li>Tipo: Continua.</li>
+<li>Distribución: Exponencial.</li>
+<li>Parámetro: Media $\beta = 2$ kg (tasa o rate $\lambda_w = 0.5$).</li>
+</ul>
+<!-- - Justificación: La distribución exponencial modela variables estrictamente positivas donde los valores pequeños o medianos son más comunes, pero existe la posibilidad remota de encontrar una reliquia extremadamente pesada. -->
+<p>Modela el peso de las reliquias, que siempre es positivo. La distribución exponencial permite
+representar muchos valores pequeños y algunos valores grandes poco frecuentes. La media de 2 kg
+es una decisión del diseñador para definir un escenario plausible.</p>
+</li>
+<li>
+<p>Bono del Ídolo de Oro ($B$):</p>
+<ul>
+<li>Tipo: Discreta (Binaria).</li>
+<li>Distribución: Bernoulli.</li>
+<li>Parámetro: $p = 0.05$ (1 entre 20).</li>
+</ul>
+<!-- - Justificación: Modela un evento dicotómico clásico (éxito/fracaso) independiente de los hallazgos anteriores, añadiendo volatilidad y emoción al final del juego. -->
+<p>Modela la ocurrencia del bono (1 si ocurre, 0 si no). Se usa Bernoulli por ser un evento de dos
+resultados posibles. La probabilidad del 5% refleja un evento raro, definido por el diseñador
+del juego.</p>
+</li>
+</ul>
+<p>En conjunto, las distribuciones y sus parámetros son elecciones del diseñador que permiten
+representar la incertidumbre del sistema de forma coherente y controlada.</p>
+<!-- 1. Diagrama de flujo
+A continuación, se presenta la lógica estructurada por nodos para la ejecución de una ronda: -->
+<!-- ![digramaFlujoExcavacionValleReyes](digramaFlujoExcavacionValleReyes.png) -->
+<p><strong>Metodología y contexto</strong></p>
+<p>El juego “Excavación en el Valle de los Reyes” fue modelado como un sistema probabilístico con tres fuentes de incertidumbre: el número de reliquias (X∼Poisson(3)), el peso de cada reliquia (Wi∼Exponencial(2)) y la ocurrencia del bono (B∼Bernoulli(0.05)). Estos supuestos corresponden a decisiones del diseñador del juego, quien define el comportamiento del sistema y su nivel de variabilidad.</p>
+<p>Debido a la complejidad del modelo, se utilizó simulación Monte Carlo, ejecutando 10,000 iteraciones del juego. Esto permitió estimar empíricamente métricas como la ganancia promedio y la probabilidad de ganar, y validar los resultados teóricos.</p>
+<hr>
+
+</body>
+</html>
